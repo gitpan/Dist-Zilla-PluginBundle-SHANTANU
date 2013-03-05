@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 # Dependencies
 use autodie 2.00;
@@ -390,7 +390,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.05
+version 0.04
 
 =head1 SYNOPSIS
 
