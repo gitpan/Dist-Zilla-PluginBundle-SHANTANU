@@ -2,9 +2,10 @@ use strict;
 use warnings;
 
 package Pod::Weaver::PluginBundle::SHANTANU;
-our $VERSION = '0.03'; # VERSION
 
-use Pod::Weaver 3.101638; 
+our $VERSION = '0.05'; # VERSION
+
+use Pod::Weaver 3.101638;
 use Pod::Weaver::Config::Assembler;
 
 # Dependencies
@@ -34,10 +35,13 @@ sub mvp_bundle_config {
         [ '@SHANTANU/Name',     _exp('Name'),      {} ],
         [ '@SHANTANU/Version',  _exp('Version'),   {} ],
 
-        [ '@SHANTANU/Prelude',     _exp('Region'),  { region_name => 'prelude' } ],
-        [ '@SHANTANU/Synopsis',    _exp('Generic'), { header      => 'SYNOPSIS' } ],
-        [ '@SHANTANU/Description', _exp('Generic'), { header      => 'DESCRIPTION' } ],
-        [ '@SHANTANU/Overview',    _exp('Generic'), { header      => 'OVERVIEW' } ],
+        [ '@SHANTANU/Prelude', _exp('Region'), { region_name => 'prelude' } ],
+        [ '@SHANTANU/Synopsis', _exp('Generic'), { header => 'SYNOPSIS' } ],
+        [
+            '@SHANTANU/Description', _exp('Generic'),
+            { header => 'DESCRIPTION' }
+        ],
+        [ '@SHANTANU/Overview', _exp('Generic'), { header => 'OVERVIEW' } ],
 
         [ '@SHANTANU/Stability', _exp('Generic'), { header => 'STABILITY' } ],
     );
@@ -69,9 +73,9 @@ sub mvp_bundle_config {
                 repository_content => $repo_intro
             }
         ],
-        [ '@SHANTANU/Authors', _exp('Authors'), {} ],
+        [ '@SHANTANU/Authors',      _exp('Authors'),      {} ],
         [ '@SHANTANU/Contributors', _exp('Contributors'), {} ],
-        [ '@SHANTANU/Legal',   _exp('Legal'),   {} ],
+        [ '@SHANTANU/Legal',        _exp('Legal'),        {} ],
         [ '@SHANTANU/List', _exp('-Transformer'), { 'transformer' => 'List' } ],
       );
 
@@ -88,7 +92,7 @@ Pod::Weaver::PluginBundle::SHANTANU
 
 =head1 VERSION
 
-version 0.03
+version 0.05
 
 =head1 AUTHOR
 

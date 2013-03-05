@@ -2,9 +2,10 @@ use strict;
 use warnings;
 
 package Dist::Zilla::PluginBundle::SHANTANU;
+
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 # Dependencies
 use autodie 2.00;
@@ -12,7 +13,7 @@ use Moose 0.99;
 use Moose::Autobox;
 use namespace::autoclean 0.09;
 
-use Dist::Zilla 4.3; 
+use Dist::Zilla 4.3;
 
 use Dist::Zilla::PluginBundle::Git 2.009;
 
@@ -38,9 +39,8 @@ use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::MinimumVersion;
 use Dist::Zilla::Plugin::Test::ReportPrereqs;
 
-
 use Dist::Zilla::Plugin::Test::PodSpelling;
-use Test::Portability::Files 0.06 (); # buggy before that
+use Test::Portability::Files 0.06 ();    # buggy before that
 use Dist::Zilla::Plugin::Test::Perl::Critic;
 use Dist::Zilla::Plugin::MetaTests;
 use Dist::Zilla::Plugin::PodSyntaxTests;
@@ -138,7 +138,9 @@ has auto_prereq => (
     isa     => 'Bool',
     lazy    => 1,
     default => sub {
-        exists $_[0]->payload->{auto_prereq} ? $_[0]->payload->{auto_prereq} : 1;
+        exists $_[0]->payload->{auto_prereq}
+          ? $_[0]->payload->{auto_prereq}
+          : 1;
     },
 );
 
@@ -154,7 +156,9 @@ has tag_format => (
     isa     => 'Str',
     lazy    => 1,
     default => sub {
-        exists $_[0]->payload->{tag_format} ? $_[0]->payload->{tag_format} : 'release-%v',;
+        exists $_[0]->payload->{tag_format}
+          ? $_[0]->payload->{tag_format}
+          : 'release-%v',;
     },
 );
 
@@ -163,7 +167,9 @@ has git_remote => (
     isa     => 'Str',
     lazy    => 1,
     default => sub {
-        exists $_[0]->payload->{git_remote} ? $_[0]->payload->{git_remote} : 'origin',;
+        exists $_[0]->payload->{git_remote}
+          ? $_[0]->payload->{git_remote}
+          : 'origin',;
     },
 );
 
@@ -174,12 +180,17 @@ sub configure {
     push @push_to, $self->git_remote if $self->git_remote ne 'origin';
 
     $self->add_plugins(
-        # version number use Autoversion Plugin if no_git is set else use Git::NextVersion based on version_regexp or default version regex
+
+# version number use Autoversion Plugin if no_git is set else use Git::NextVersion based on version_regexp or default version regex
         (
             $self->no_git
             ? 'AutoVersion'
-            : [ 'Git::NextVersion' => { version_regexp => $self->version_regexp } ]
+            : [
+                'Git::NextVersion' =>
+                  { version_regexp => $self->version_regexp }
+            ]
         ),
+        'PerlTidy',
 
         # contributors
         (
@@ -188,8 +199,8 @@ sub configure {
             : 'ContributorsFromGit'
         ),
 
-        'PruneCruft',                                                               # core
-        'ManifestSkip',                                                             # core
+        'PruneCruft',      # core
+        'ManifestSkip',    # core
 
         # file munging
         'OurPkgVersion',
@@ -202,27 +213,34 @@ sub configure {
         ),
 
         # generated distribution files
-        'ReadmeAnyFromPod', # in build dir
+        'ReadmeAnyFromPod',    # in build dir
         [
-            ReadmeAnyFromPod => ReadmeInRoot => { # also generate in root for github, etc.
+            ReadmeAnyFromPod => ReadmeInRoot =>
+              {                # also generate in root for github, etc.
                 type     => 'pod',
                 filename => 'README.pod',
                 location => 'root',
-            }
+              }
         ],
 
-        'License',                              # core
+        'License',             # core
 
         # generated t/ tests
-        [ 'Test::Compile' => { fake_home => 1 } ],
+        [ 'Test::Compile'        => { fake_home       => 1 } ],
         [ 'Test::MinimumVersion' => { max_target_perl => '5.010' } ],
         'Test::ReportPrereqs',
 
         # gather and prune
         (
             $self->no_git
-            ? [ 'GatherDir' => { exclude_filename => [qw/README.pod META.json/] } ] # core
-            : [ 'Git::GatherDir' => { exclude_filename => [qw/README.pod META.json/] } ]
+            ? [
+                'GatherDir' =>
+                  { exclude_filename => [qw/README.pod META.json/] }
+              ]    # core
+            : [
+                'Git::GatherDir' =>
+                  { exclude_filename => [qw/README.pod META.json/] }
+            ]
         ),
 
         #Automatically put Resources which need not be specified manually
@@ -237,21 +255,19 @@ sub configure {
 
         # generated xt/ tests
         (
-            $self->no_spellcheck
-            ? ()
+            $self->no_spellcheck ? ()
             : [ 'Test::PodSpelling' => { stopwords => $self->stopwords } ]
         ),
         (
-            $self->no_critic
-            ? ()
+            $self->no_critic ? ()
             : ('Test::Perl::Critic')
         ),
-        'MetaTests',      # core
-        'PodSyntaxTests', # core
+        'MetaTests',         # core
+        'PodSyntaxTests',    # core
         (
             $self->no_coverage
             ? ()
-            : ('PodCoverageTests') # core
+            : ('PodCoverageTests')    # core
         ),
         [ 'Test::Portability' => { options => "test_one_dot = 0" } ],
         'Test::Version',
@@ -269,14 +285,15 @@ sub configure {
                 'package' => [qw/DB/]
             }
         ],
-        [ 'MetaProvides::Package' => { meta_noindex => 1 } ], # AFTER MetaNoIndex
+        [ 'MetaProvides::Package' => { meta_noindex => 1 } ]
+        ,    # AFTER MetaNoIndex
 
-        'MetaJSON',                                           # core
+        'MetaJSON',    # core
 
         # build system
-        'ExecDir',                                            # core
-        'ShareDir',                                           # core
-        'MakeMaker',                                          # core
+        'ExecDir',      # core
+        'ShareDir',     # core
+        'MakeMaker',    # core
 
         # copy files from build back to root for inclusion in VCS
         [
@@ -286,25 +303,27 @@ sub configure {
         ],
 
         # manifest -- must come after all generated files
-        'Manifest',                                           # core
+        'Manifest',     # core
 
         # before release
         (
             $self->no_git
             ? ()
-            : [ 'Git::Check' => { 
-                    allow_dirty => [qw/dist.ini Changes README.pod META.yml/] 
-            } ]
+            : [
+                'Git::Check' => {
+                    allow_dirty => [qw/dist.ini Changes README.pod META.yml/]
+                }
+            ]
         ),
         'CheckMetaResources',
         'CheckPrereqsIndexed',
         'CheckChangesHasContent',
         'CheckExtraTests',
-        'TestRelease',                                        # core
-        'ConfirmRelease',                                     # core
+        'TestRelease',       # core
+        'ConfirmRelease',    # core
 
         # release
-        ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ), # core
+        ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),    # core
 
         # after release
         # Note -- NextRelease is here to get the ordering right with
@@ -316,8 +335,10 @@ sub configure {
             ? ()
             : (
                 [
-                    'Git::Commit' => 'Commit_Dirty_Files' =>
-                      { allow_dirty => [qw/dist.ini Changes README.pod META.json/] }
+                    'Git::Commit' => 'Commit_Dirty_Files' => {
+                        allow_dirty =>
+                          [qw/dist.ini Changes README.pod META.json/]
+                    }
                 ],
                 [ 'Git::Tag' => { tag_format => $self->tag_format } ],
             )
@@ -328,13 +349,16 @@ sub configure {
             'NextRelease' => {
                 format => '%n%v%n%n%t- %{yyyy-MM-dd HH:mm:ss VVVV}d%n',
             },
-        ], # core (also munges files)
+        ],    # core (also munges files)
 
         (
             $self->no_git
             ? ()
             : (
-                [ 'Git::Commit' => 'Commit_Changes' => { commit_msg => "Bump Changes" } ],
+                [
+                    'Git::Commit' => 'Commit_Changes' =>
+                      { commit_msg => "Bump Changes" }
+                ],
 
                 [ 'Git::Push' => { push_to => \@push_to } ],
             )
@@ -366,7 +390,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.03
+version 0.05
 
 =head1 SYNOPSIS
 
