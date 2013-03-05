@@ -1,0 +1,110 @@
+NAME
+    Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I
+    like to use it
+
+VERSION
+    version 0.03
+
+SYNOPSIS
+       # in dist.ini
+         [@SHANTANU]
+
+DESCRIPTION
+    This is a Dist::Zilla PluginBundle. The way I use it. While this bundle
+    is customized to my needs, others might be better of forking this
+    repository and modifying it to their own needs or using the more mature
+    Plugin bundles that this is derived from like the one by David Golden.
+
+ATTRIBUTES
+  no_git
+    no_git attribute
+
+  version_regexp
+    version_regexp attribute
+
+USAGE
+    To use this PluginBundle, just add it to your dist.ini. You can provide
+    the following options:
+
+    *   "is_task" -- this indicates whether TaskWeaver or PodWeaver should
+        be used. Default is 0.
+
+    *   "auto_prereq" -- this indicates whether AutoPrereq should be used or
+        not. Default is 1.
+
+    *   "tag_format" -- given to "Git::Tag". Default is 'release-%v' to be
+        more robust than just the version number when parsing versions for
+        "Git::NextVersion"
+
+    *   "version_regexp" -- given to "Git::NextVersion". Default is
+        '^release-(.+)$'
+
+    *   "fake_release" -- swaps FakeRelease for UploadToCPAN. Mostly useful
+        for testing a dist.ini without risking a real release.
+
+    *   "weaver_config" -- specifies a Pod::Weaver bundle. Defaults to
+        @SHANTANU.
+
+    *   "stopwords" -- add stopword for Test::PodSpelling (can be repeated)
+
+    *   "no_git" -- bypass all git-dependent plugins
+
+    *   "no_critic" -- omit Test::Perl::Critic tests
+
+    *   "no_spellcheck" -- omit Test::PodSpelling tests
+
+    *   "no_coverage" -- omit Pod Coverage tests
+
+    When running without git, C<GatherDir> is used instead of
+    C<Git::GatherDir>, C<AutoVersion> is used instead of
+    C<Git::NextVersion>, and all git check and commit operations are
+    disabled.
+
+    This PluginBundle now supports ConfigSlicer, so you can pass in options
+    to the plugins used like this:
+
+       [@SHANTANU]
+       ExecDir.dir = scripts ; overrides ExecDir
+
+COMMON PATTERNS
+  use github instead of RT
+       [@SHANTANU]
+       :version = 0.32
+       AutoMetaResources.bugtracker.github = user:shantanu
+       AutoMetaResources.bugtracker.rt = 0
+
+SEE ALSO
+    *   Dist::Zilla
+
+    *   Dist::Zilla::Plugin::PodWeaver
+
+    *   Dist::Zilla::Plugin::TaskWeaver
+
+SUPPORT
+  Bugs / Feature Requests
+    Please report any bugs or feature requests through github at
+    <https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu/is
+    sues>. You will be notified automatically of any progress on your issue.
+
+  Source Code
+    This is open source software. The code repository is available for
+    public review and contribution under the terms of the license.
+
+    <https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu>
+
+      git clone git://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu.git
+
+AUTHOR
+    Shantanu Bhadoria <shantanu@cpan.org>
+
+CONTRIBUTORS
+    *   Shantanu Bhadoria <shantanu.bhadoria@gmail.com>
+
+    *   Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Shantanu Bhadoria.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
