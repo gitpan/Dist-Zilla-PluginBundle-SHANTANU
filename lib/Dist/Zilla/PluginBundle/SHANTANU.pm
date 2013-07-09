@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 # Dependencies
 use autodie 2.00;
@@ -291,9 +291,9 @@ sub configure {
         'MetaJSON',    # core
 
         # build system
-        'ExecDir',      # core
-        'ShareDir',     # core
-        'MakeMaker',    # core
+        'ExecDir',               # core
+        'ShareDir',              # core
+        'MakeMaker::Awesome',    # core
 
         # copy files from build back to root for inclusion in VCS
         [
@@ -303,7 +303,7 @@ sub configure {
         ],
 
         # manifest -- must come after all generated files
-        'Manifest',     # core
+        'Manifest',              # core
 
         # before release
         (
@@ -390,7 +390,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.04
+version 0.08
 
 =head1 SYNOPSIS
 
