@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.08'; # VERSION
+our $VERSION = '0.09'; # VERSION
 
 # Dependencies
 use autodie 2.00;
@@ -56,7 +56,27 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 with 'Dist::Zilla::Role::PluginBundle::Config::Slicer';
 
 #Gather Stopwords that may skip spelling checks in pod testing
-sub mvp_multivalue_args { qw/stopwords/ }
+sub mvp_multivalue_args { qw/stopwords exclude_filename exclude_match/ }
+
+
+has makemaker => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    default => sub {
+        exists $_[0]->payload->{makemaker}
+          ? $_[0]->payload->{makemaker}
+          : "MakeMaker::Awesome";
+    },
+);
+
+
+has skip_makemaker => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{skip_makemaker} },
+);
 
 
 has no_git => (
@@ -103,6 +123,31 @@ has no_spellcheck => (
           : 0;
     },
 );
+
+
+has exclude_filename => (
+    is      => 'ro',
+    isa     => 'ArrayRef',
+    lazy    => 1,
+    default => sub {
+        exists $_[0]->payload->{exclude_filename}
+          ? $_[0]->payload->{exclude_filename}
+          : [qw/dist.ini README.pod META.json/];
+    },
+);
+
+
+has exclude_match => (
+    is      => 'ro',
+    isa     => 'ArrayRef',
+    lazy    => 1,
+    default => sub {
+        exists $_[0]->payload->{exclude_match}
+          ? $_[0]->payload->{exclude_match}
+          : [];
+    },
+);
+
 
 has stopwords => (
     is      => 'ro',
@@ -234,12 +279,16 @@ sub configure {
         (
             $self->no_git
             ? [
-                'GatherDir' =>
-                  { exclude_filename => [qw/README.pod META.json/] }
+                'GatherDir' => {
+                    exclude_filename => $self->exclude_filename,
+                    exclude_match    => $self->exclude_match
+                },
               ]    # core
             : [
-                'Git::GatherDir' =>
-                  { exclude_filename => [qw/README.pod META.json/] }
+                'Git::GatherDir' => {
+                    exclude_filename => $self->exclude_filename,
+                    exclude_match    => $self->exclude_match
+                },
             ]
         ),
 
@@ -291,9 +340,13 @@ sub configure {
         'MetaJSON',    # core
 
         # build system
-        'ExecDir',               # core
-        'ShareDir',              # core
-        'MakeMaker::Awesome',    # core
+        'ExecDir',     # core
+        'ShareDir',    # core
+        (
+            $self->skip_makemaker
+            ? ()
+            : $self->makemaker
+        ),             # core
 
         # copy files from build back to root for inclusion in VCS
         [
@@ -303,7 +356,7 @@ sub configure {
         ],
 
         # manifest -- must come after all generated files
-        'Manifest',              # core
+        'Manifest',    # core
 
         # before release
         (
@@ -390,7 +443,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -408,11 +461,34 @@ this is derived from like the one by David Golden.
 
 =head2 no_git
 
+makemaker attribute By default uses [MakeMaker::Awesome] This can be overriden by defining this attribute
+
+=head2 skip_makemaker 
+
+Skip Default Makemaker option to add your own plugin for generating makefile
+
+=head2 no_git
+
 no_git attribute
 
 =head2 version_regexp 
 
 version_regexp attribute
+
+=head2 exclude_filename
+
+list of filenames to exclude e.g.
+    exclude_filename=dist.ini
+    exclude_filename=META.json
+
+=head2 exclude_match
+
+list of regex paths to exclude e.g.
+    exclude_match=^inc\/.*
+
+=head2 stopwords
+
+Stopwords to exclude for spell checks in pod
 
 =for stopwords autoprereq dagolden fakerelease pluginbundle podweaver
 taskweaver uploadtocpan dist ini

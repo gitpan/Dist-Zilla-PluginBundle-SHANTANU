@@ -3,7 +3,7 @@ NAME
     like to use it
 
 VERSION
-    version 0.08
+    version 0.09
 
 SYNOPSIS
        # in dist.ini
@@ -17,10 +17,28 @@ DESCRIPTION
 
 ATTRIBUTES
   no_git
+    makemaker attribute By default uses [MakeMaker::Awesome] This can be
+    overriden by defining this attribute
+
+  skip_makemaker
+    Skip Default Makemaker option to add your own plugin for generating
+    makefile
+
+  no_git
     no_git attribute
 
   version_regexp
     version_regexp attribute
+
+  exclude_filename
+    list of filenames to exclude e.g. exclude_filename=dist.ini
+    exclude_filename=META.json
+
+  exclude_match
+    list of regex paths to exclude e.g. exclude_match=^inc\/.*
+
+  stopwords
+    Stopwords to exclude for spell checks in pod
 
 USAGE
     To use this PluginBundle, just add it to your dist.ini. You can provide

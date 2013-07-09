@@ -4,7 +4,6 @@ MANIFEST
 META.json
 Makefile.PL
 README
-dist.ini
 lib/Dist/Zilla/PluginBundle/SHANTANU.pm
 lib/Pod/Weaver/PluginBundle/SHANTANU.pm
 t/00-compile.t
