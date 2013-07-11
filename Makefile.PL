@@ -30,9 +30,11 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::InsertCopyright" => 0,
     "Dist::Zilla::Plugin::License" => 0,
     "Dist::Zilla::Plugin::ManifestSkip" => 0,
+    "Dist::Zilla::Plugin::MetaJSON" => 0,
     "Dist::Zilla::Plugin::MetaNoIndex" => 0,
     "Dist::Zilla::Plugin::MetaProvides::Package" => 0,
     "Dist::Zilla::Plugin::MetaTests" => 0,
+    "Dist::Zilla::Plugin::MetaYAML" => 0,
     "Dist::Zilla::Plugin::MinimumPerl" => 0,
     "Dist::Zilla::Plugin::OurPkgVersion" => 0,
     "Dist::Zilla::Plugin::PodCoverageTests" => 0,
@@ -73,7 +75,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.09",
+  "VERSION" => "0.10",
   "test" => {
     "TESTS" => "t/*.t"
   }

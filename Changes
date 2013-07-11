@@ -2,6 +2,13 @@ Changes for Dist::Zilla::PluginBundle::Shantanu
 
     - Time for the first release
 
+0.10
+
+	- 2013-07-11 09:03:49 Asia/Singapore
+
+
+Added Meta YAML generator to help older parsers and KWalitee
+
 0.09
 
 	- 2013-07-09 21:53:25 Asia/Singapore

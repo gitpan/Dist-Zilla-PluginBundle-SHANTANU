@@ -17,9 +17,11 @@ my @modules = qw(
   Dist::Zilla::Plugin::InsertCopyright
   Dist::Zilla::Plugin::License
   Dist::Zilla::Plugin::ManifestSkip
+  Dist::Zilla::Plugin::MetaJSON
   Dist::Zilla::Plugin::MetaNoIndex
   Dist::Zilla::Plugin::MetaProvides::Package
   Dist::Zilla::Plugin::MetaTests
+  Dist::Zilla::Plugin::MetaYAML
   Dist::Zilla::Plugin::MinimumPerl
   Dist::Zilla::Plugin::OurPkgVersion
   Dist::Zilla::Plugin::PodCoverageTests
