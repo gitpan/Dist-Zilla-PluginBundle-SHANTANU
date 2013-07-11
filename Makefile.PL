@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -20,7 +20,7 @@ my %WriteMakefileArgs = (
   "DISTNAME" => "Dist-Zilla-PluginBundle-SHANTANU",
   "EXE_FILES" => [],
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.006",
+  "MIN_PERL_VERSION" => "5.010",
   "NAME" => "Dist::Zilla::PluginBundle::SHANTANU",
   "PREREQ_PM" => {
     "Dist::Zilla" => "4.3",
@@ -75,7 +75,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.10",
+  "VERSION" => "0.11",
   "test" => {
     "TESTS" => "t/*.t"
   }

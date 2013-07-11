@@ -5,9 +5,10 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.10'; # VERSION
+our $VERSION = '0.11'; # VERSION
 
 # Dependencies
+use 5.010;
 use autodie 2.00;
 use Moose 0.99;
 use Moose::Autobox;
@@ -134,7 +135,7 @@ has exclude_filename => (
     default => sub {
         exists $_[0]->payload->{exclude_filename}
           ? $_[0]->payload->{exclude_filename}
-          : [qw/dist.ini README.pod META.json/];
+          : [qw/dist.ini README.pod META.json META.yml/];
     },
 );
 
@@ -386,7 +387,7 @@ sub configure {
         # Note -- NextRelease is here to get the ordering right with
         # git actions.  It is *also* a file munger that acts earlier
 
-        # commit dirty Changes, dist.ini, README.pod, META.json
+        # commit dirty Changes, dist.ini, README.pod, META.json, META.yml
         (
             $self->no_git
             ? ()
@@ -394,7 +395,7 @@ sub configure {
                 [
                     'Git::Commit' => 'Commit_Dirty_Files' => {
                         allow_dirty =>
-                          [qw/dist.ini Changes README.pod META.json/]
+                          [qw/dist.ini Changes README.pod META.json META.yml/]
                     }
                 ],
                 [ 'Git::Tag' => { tag_format => $self->tag_format } ],
@@ -447,7 +448,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 
@@ -484,6 +485,7 @@ version_regexp attribute
 list of filenames to exclude e.g.
     exclude_filename=dist.ini
     exclude_filename=META.json
+    exclude_filename=META.yml
 
 =head2 exclude_match
 

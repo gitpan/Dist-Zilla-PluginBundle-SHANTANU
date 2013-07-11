@@ -4,7 +4,7 @@
       "Shantanu Bhadoria <shantanu@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
    "license" : [
       "perl_5"
    ],
@@ -81,7 +81,7 @@
             "Test::Portability::Files" : "0.06",
             "autodie" : "2.00",
             "namespace::autoclean" : "0.09",
-            "perl" : "5.006",
+            "perl" : "5.010",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -100,11 +100,11 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::SHANTANU" : {
          "file" : "lib/Dist/Zilla/PluginBundle/SHANTANU.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       },
       "Pod::Weaver::PluginBundle::SHANTANU" : {
          "file" : "lib/Pod/Weaver/PluginBundle/SHANTANU.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       }
    },
    "release_status" : "stable",
@@ -119,7 +119,7 @@
          "web" : "https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [
       "Shantanu Bhadoria <shantanu.bhadoria@gmail.com>",
       "Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>"
