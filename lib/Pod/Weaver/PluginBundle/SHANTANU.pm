@@ -3,7 +3,7 @@ use warnings;
 
 package Pod::Weaver::PluginBundle::SHANTANU;
 
-our $VERSION = '0.11'; # VERSION
+our $VERSION = '0.12'; # VERSION
 
 use Pod::Weaver 3.101638;
 use Pod::Weaver::Config::Assembler;
@@ -92,25 +92,11 @@ Pod::Weaver::PluginBundle::SHANTANU
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 AUTHOR
 
 Shantanu Bhadoria <shantanu@cpan.org>
-
-=head1 CONTRIBUTORS
-
-=over 4
-
-=item *
-
-Shantanu Bhadoria <shantanu.bhadoria@gmail.com>
-
-=item *
-
-Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>
-
-=back
 
 =head1 COPYRIGHT AND LICENSE
 

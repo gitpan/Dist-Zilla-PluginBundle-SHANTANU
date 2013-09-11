@@ -12,10 +12,16 @@ use List::Util qw/max/;
 my @modules = qw(
     Dist::Zilla
   Dist::Zilla::Plugin::AutoMetaResources
+  Dist::Zilla::Plugin::CheckChangesHasContent
+  Dist::Zilla::Plugin::CheckExtraTests
+  Dist::Zilla::Plugin::CheckMetaResources
+  Dist::Zilla::Plugin::CheckPrereqsIndexed
   Dist::Zilla::Plugin::ContributorsFromGit
+  Dist::Zilla::Plugin::CopyFilesFromBuild
   Dist::Zilla::Plugin::Git::NextVersion
   Dist::Zilla::Plugin::InsertCopyright
   Dist::Zilla::Plugin::License
+  Dist::Zilla::Plugin::MakeMaker::Awesome
   Dist::Zilla::Plugin::ManifestSkip
   Dist::Zilla::Plugin::MetaJSON
   Dist::Zilla::Plugin::MetaNoIndex
@@ -24,6 +30,7 @@ my @modules = qw(
   Dist::Zilla::Plugin::MetaYAML
   Dist::Zilla::Plugin::MinimumPerl
   Dist::Zilla::Plugin::OurPkgVersion
+  Dist::Zilla::Plugin::PerlTidy
   Dist::Zilla::Plugin::PodCoverageTests
   Dist::Zilla::Plugin::PodSyntaxTests
   Dist::Zilla::Plugin::PodWeaver

@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.11'; # VERSION
+our $VERSION = '0.12'; # VERSION
 
 # Dependencies
 use 5.010;
@@ -54,6 +54,14 @@ use Dist::Zilla::Plugin::MetaNoIndex;
 use Dist::Zilla::Plugin::MetaProvides::Package;
 use Dist::Zilla::Plugin::MetaYAML;
 use Dist::Zilla::Plugin::MetaJSON;
+
+use Dist::Zilla::Plugin::PerlTidy;
+use Dist::Zilla::Plugin::MakeMaker::Awesome;
+use Dist::Zilla::Plugin::CopyFilesFromBuild;
+use Dist::Zilla::Plugin::CheckMetaResources;
+use Dist::Zilla::Plugin::CheckPrereqsIndexed;
+use Dist::Zilla::Plugin::CheckChangesHasContent;
+use Dist::Zilla::Plugin::CheckExtraTests;
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 with 'Dist::Zilla::Role::PluginBundle::Config::Slicer';
@@ -448,7 +456,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -623,6 +631,10 @@ Shantanu Bhadoria <shantanu@cpan.org>
 =head1 CONTRIBUTORS
 
 =over 4
+
+=item *
+
+Shantanu <shantanu@cpan.org>
 
 =item *
 

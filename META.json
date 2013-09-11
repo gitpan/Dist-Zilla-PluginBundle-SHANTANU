@@ -4,7 +4,7 @@
       "Shantanu Bhadoria <shantanu@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Zilla version 4.300038, CPAN::Meta::Converter version 2.132510",
    "license" : [
       "perl_5"
    ],
@@ -42,10 +42,16 @@
          "requires" : {
             "Dist::Zilla" : "4.3",
             "Dist::Zilla::Plugin::AutoMetaResources" : "0",
+            "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
+            "Dist::Zilla::Plugin::CheckExtraTests" : "0",
+            "Dist::Zilla::Plugin::CheckMetaResources" : "0",
+            "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0",
             "Dist::Zilla::Plugin::ContributorsFromGit" : "0",
+            "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
             "Dist::Zilla::Plugin::Git::NextVersion" : "0",
             "Dist::Zilla::Plugin::InsertCopyright" : "0",
             "Dist::Zilla::Plugin::License" : "0",
+            "Dist::Zilla::Plugin::MakeMaker::Awesome" : "0",
             "Dist::Zilla::Plugin::ManifestSkip" : "0",
             "Dist::Zilla::Plugin::MetaJSON" : "0",
             "Dist::Zilla::Plugin::MetaNoIndex" : "0",
@@ -54,6 +60,7 @@
             "Dist::Zilla::Plugin::MetaYAML" : "0",
             "Dist::Zilla::Plugin::MinimumPerl" : "0",
             "Dist::Zilla::Plugin::OurPkgVersion" : "0",
+            "Dist::Zilla::Plugin::PerlTidy" : "0",
             "Dist::Zilla::Plugin::PodCoverageTests" : "0",
             "Dist::Zilla::Plugin::PodSyntaxTests" : "0",
             "Dist::Zilla::Plugin::PodWeaver" : "0",
@@ -100,11 +107,11 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::SHANTANU" : {
          "file" : "lib/Dist/Zilla/PluginBundle/SHANTANU.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       },
       "Pod::Weaver::PluginBundle::SHANTANU" : {
          "file" : "lib/Pod/Weaver/PluginBundle/SHANTANU.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       }
    },
    "release_status" : "stable",
@@ -119,8 +126,9 @@
          "web" : "https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu"
       }
    },
-   "version" : "0.11",
+   "version" : "0.12",
    "x_contributors" : [
+      "Shantanu <shantanu@cpan.org>",
       "Shantanu Bhadoria <shantanu.bhadoria@gmail.com>",
       "Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>"
    ]

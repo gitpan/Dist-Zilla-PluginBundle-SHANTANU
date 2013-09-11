@@ -3,7 +3,7 @@ NAME
     like to use it
 
 VERSION
-    version 0.11
+    version 0.12
 
 SYNOPSIS
        # in dist.ini
@@ -116,6 +116,8 @@ AUTHOR
     Shantanu Bhadoria <shantanu@cpan.org>
 
 CONTRIBUTORS
+    *   Shantanu <shantanu@cpan.org>
+
     *   Shantanu Bhadoria <shantanu.bhadoria@gmail.com>
 
     *   Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>
