@@ -24,6 +24,7 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Dist::Zilla" => "4.3",
     "Dist::Zilla::Plugin::AutoMetaResources" => 0,
+    "Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes" => 0,
     "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::CheckMetaResources" => 0,
@@ -81,7 +82,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.12",
+  "VERSION" => "0.13",
   "test" => {
     "TESTS" => "t/*.t"
   }

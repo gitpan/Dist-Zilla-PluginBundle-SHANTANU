@@ -1,0 +1,76 @@
+Changelog for Dist-Zilla-PluginBundle-SHANTANU
+
+0.13 2013-09-12T06:08:03
+ - Moved to Changelog From git [Shantanu]
+ - Bump Changes [Shantanu]
+
+0.12 2013-09-11T03:21:17
+ - fixed Deps [Shantanu]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.11 2013-07-11T03:37:54
+ - v0.11
+   
+	   - 2013-07-11 11:37:13 Asia/Singapore [Shantanu Bhadoria]
+ - Added Perl Version, few fixes to ignore META.yml for git [Shantanu
+   Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.10 2013-07-11T01:10:14
+ - v0.10
+   
+	   - 2013-07-11 09:03:49 Asia/Singapore [Shantanu Bhadoria]
+ - Added Meta YAML generator to help older parsers and KWalitee [Shantanu
+   Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.09 2013-07-09T13:54:24
+ - v0.09
+   
+	   - 2013-07-09 21:53:25 Asia/Singapore
+   
+     - Modifications for exclude_filename and exclude_match flags [Shantanu
+   Bhadoria]
+ - Modification for exclude_filename bug [Shantanu Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.08 2013-07-09T10:13:16
+ - v0.08
+   
+	   - 2013-07-09 18:12:37 Asia/Singapore [Shantanu Bhadoria]
+
+0.07 2013-07-09T10:00:24
+ - Swapped Dist::Zilla::Plugin::MakeMaker with
+   Dist::Zilla::Plugin::MakeMaker::Awesome [Shantanu Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.04 2013-03-05T12:37:47
+ - v0.04
+   
+	   - 2013-03-05 20:36:44 Asia/Singapore [Shantanu Bhadoria]
+ - Fixed .gitignore to ignore PERLTIDY log [Shantanu Bhadoria]
+ - Fixed a spelling mistake [Shantanu Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.03 2013-03-05T12:09:35
+ - v0.03
+   
+	   - 2013-03-05 20:08:40 Asia/Singapore [Shantanu Bhadoria]
+ - Bump Changes [Shantanu Bhadoria]
+
+0.02 2013-03-05T12:08:16
+ - v0.02
+   
+	   - 2013-03-05 20:07:37 Asia/Singapore [Shantanu Bhadoria]
+ - Fixed VERSION Comment [Shantanu Bhadoria]
+
+0.01 2013-03-05T10:55:51
+ - Fixed VERSION Comment [Shantanu Bhadoria]
+ - Added Changelogfromgit plugin [Shantanu Bhadoria]
+ - fixed dist.ini [Shantanu Bhadoria]
+ - Modified gitignore to allow META.yml files added README Pod for githubi
+   and CHangelog file [Shantanu Bhadoria]
+ - Adding Git ignore file [Shantanu Bhadoria]
+ - release-0.01 [Shantanu Bhadoria]
+ - Initial commit [Shantanu Bhadoria]
+

@@ -42,6 +42,7 @@
          "requires" : {
             "Dist::Zilla" : "4.3",
             "Dist::Zilla::Plugin::AutoMetaResources" : "0",
+            "Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes" : "0",
             "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
             "Dist::Zilla::Plugin::CheckExtraTests" : "0",
             "Dist::Zilla::Plugin::CheckMetaResources" : "0",
@@ -107,11 +108,11 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::SHANTANU" : {
          "file" : "lib/Dist/Zilla/PluginBundle/SHANTANU.pm",
-         "version" : "0.12"
+         "version" : "0.13"
       },
       "Pod::Weaver::PluginBundle::SHANTANU" : {
          "file" : "lib/Pod/Weaver/PluginBundle/SHANTANU.pm",
-         "version" : "0.12"
+         "version" : "0.13"
       }
    },
    "release_status" : "stable",
@@ -126,7 +127,7 @@
          "web" : "https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu"
       }
    },
-   "version" : "0.12",
+   "version" : "0.13",
    "x_contributors" : [
       "Shantanu <shantanu@cpan.org>",
       "Shantanu Bhadoria <shantanu.bhadoria@gmail.com>",
