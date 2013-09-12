@@ -1,6 +1,9 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.14 2013-09-12T06:15:13
+0.15 2013-09-12T06:20:55
+ - Renamed CHANGES to Changes [Shantanu]
+
+0.14 2013-09-12T06:14:58
  - Renamed CHANGES to Changes [Shantanu]
 
 0.13 2013-09-12T06:07:57
