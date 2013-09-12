@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.15'; # VERSION
+our $VERSION = '0.16'; # VERSION
 
 # Dependencies
 use 5.010;
@@ -144,7 +144,7 @@ has exclude_filename => (
     default => sub {
         exists $_[0]->payload->{exclude_filename}
           ? $_[0]->payload->{exclude_filename}
-          : [qw/dist.ini README.pod META.json META.yml/];
+          : [qw/dist.ini Changes README.pod META.json META.yml/];
     },
 );
 
@@ -372,7 +372,7 @@ sub configure {
         # copy files from build back to root for inclusion in VCS
         [
             CopyFilesFromBuild => {
-                copy => 'META.yml',
+                copy => qw[META.yml Changes],
             }
         ],
 
@@ -463,7 +463,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 SYNOPSIS
 

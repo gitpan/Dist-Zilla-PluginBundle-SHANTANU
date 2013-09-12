@@ -1,6 +1,11 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.15 2013-09-12T06:20:55
+0.16 2013-09-12T06:45:43
+ - Commit Changes test [Shantanu]
+ - trying a different Position for Changelog. moveing Changes back to core
+   [Shantanu]
+
+0.15 2013-09-12T06:20:47
  - Renamed CHANGES to Changes [Shantanu]
 
 0.14 2013-09-12T06:14:58
