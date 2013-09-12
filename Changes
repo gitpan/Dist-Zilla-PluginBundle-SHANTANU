@@ -1,6 +1,27 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.17 2013-09-12T08:44:57
+0.18 2013-09-12T08:48:34
+ - Merge branch 'master' of
+   github.com:shantanubhadoria/Dist-Zilla-PluginBundle-SHANTANU
+   
+   Conflicts:
+	   Changes [Shantanu]
+ - v0.16
+   
+    - Commit Changes test [Shantanu]
+    - trying a different Position for Changelog. moveing Changes back to
+   core
+      [Shantanu] [Shantanu]
+
+0.17 2013-09-12T08:45:39
+ - v0.17
+   
+    - Added README.pod
+   
+       - Commit Changes test [Shantanu]
+       - trying a different Position for Changelog. moveing Changes back to
+      core
+	 [Shantanu] [Shantanu] [Shantanu]
  - Added README.pod
    
     - Commit Changes test [Shantanu]
