@@ -29,10 +29,10 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::SHANTANU:
     file: lib/Dist/Zilla/PluginBundle/SHANTANU.pm
-    version: 0.16
+    version: 0.17
   Pod::Weaver::PluginBundle::SHANTANU:
     file: lib/Pod/Weaver/PluginBundle/SHANTANU.pm
-    version: 0.16
+    version: 0.17
 requires:
   Dist::Zilla: 4.3
   Dist::Zilla::Plugin::AutoMetaResources: 0
@@ -90,7 +90,7 @@ resources:
   bugtracker: https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu/issues
   homepage: https://metacpan.org/release/Dist-Zilla-PluginBundle-SHANTANU
   repository: git://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu.git
-version: 0.16
+version: 0.17
 x_contributors:
   - 'Shantanu <shantanu@cpan.org>'
   - 'Shantanu Bhadoria <shantanu.bhadoria@gmail.com>'
