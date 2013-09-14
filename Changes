@@ -1,6 +1,22 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.18 2013-09-12T08:48:34
+0.19 2013-09-14T03:36:23
+ - Added inc and corpus directories to no index list [Shantanu]
+
+0.18 2013-09-12T08:49:01
+ - v0.18
+   
+    - Merge branch 'master' of
+      github.com:shantanubhadoria/Dist-Zilla-PluginBundle-SHANTANU
+   
+      Conflicts:
+	      Changes [Shantanu]
+    - v0.16
+   
+       - Commit Changes test [Shantanu]
+       - trying a different Position for Changelog. moveing Changes back to
+      core
+	 [Shantanu] [Shantanu] [Shantanu]
  - Merge branch 'master' of
    github.com:shantanubhadoria/Dist-Zilla-PluginBundle-SHANTANU
    

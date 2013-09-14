@@ -51,6 +51,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::ReadmeAnyFromPod" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => 0,
     "Dist::Zilla::Plugin::Test::Compile" => 0,
+    "Dist::Zilla::Plugin::Test::Kwalitee::Extra" => 0,
     "Dist::Zilla::Plugin::Test::MinimumVersion" => 0,
     "Dist::Zilla::Plugin::Test::Perl::Critic" => 0,
     "Dist::Zilla::Plugin::Test::PodSpelling" => 0,
@@ -82,7 +83,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.18",
+  "VERSION" => "0.19",
   "test" => {
     "TESTS" => "t/*.t"
   }

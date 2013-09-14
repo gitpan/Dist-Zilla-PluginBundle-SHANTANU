@@ -3,7 +3,7 @@ use warnings;
 
 package Pod::Weaver::PluginBundle::SHANTANU;
 
-our $VERSION = '0.18'; # VERSION
+our $VERSION = '0.19'; # VERSION
 
 use Pod::Weaver 3.101638;
 use Pod::Weaver::Config::Assembler;
@@ -26,6 +26,7 @@ Please report any bugs or feature requests through github at
 {WEB}.
 You will be notified automatically of any progress on your issue.
 END
+
 
 sub mvp_bundle_config {
     my @plugins;
@@ -92,7 +93,11 @@ Pod::Weaver::PluginBundle::SHANTANU
 
 =head1 VERSION
 
-version 0.18
+version 0.19
+
+=head1 METHODS
+
+=head2 mvp_bundle_config
 
 =head1 AUTHOR
 

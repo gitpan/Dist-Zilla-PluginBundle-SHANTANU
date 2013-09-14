@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.18'; # VERSION
+our $VERSION = '0.19'; # VERSION
 
 # Dependencies
 use 5.010;
@@ -43,6 +43,7 @@ use Dist::Zilla::Plugin::Test::ReportPrereqs;
 use Dist::Zilla::Plugin::Test::PodSpelling;
 use Test::Portability::Files 0.06 ();    # buggy before that
 use Dist::Zilla::Plugin::Test::Perl::Critic;
+use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
 use Dist::Zilla::Plugin::MetaTests;
 use Dist::Zilla::Plugin::PodSyntaxTests;
 use Dist::Zilla::Plugin::PodCoverageTests;
@@ -323,6 +324,11 @@ sub configure {
             $self->no_critic ? ()
             : ('Test::Perl::Critic')
         ),
+        [
+            'Test::Kwalitee::Extra' => {
+                has_corpus => 0,
+            },
+        ],
         'MetaTests',         # core
         'PodSyntaxTests',    # core
         (
@@ -342,7 +348,7 @@ sub configure {
         ),
         [
             MetaNoIndex => {
-                directory => [qw/t xt examples corpus/],
+                directory => [qw/t xt examples corpus inc/],
                 'package' => [qw/DB/]
             }
         ],
@@ -463,7 +469,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 SYNOPSIS
 
