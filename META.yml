@@ -24,15 +24,16 @@ no_index:
     - xt
     - examples
     - corpus
+    - inc
   package:
     - DB
 provides:
   Dist::Zilla::PluginBundle::SHANTANU:
     file: lib/Dist/Zilla/PluginBundle/SHANTANU.pm
-    version: 0.19
+    version: 0.20
   Pod::Weaver::PluginBundle::SHANTANU:
     file: lib/Pod/Weaver/PluginBundle/SHANTANU.pm
-    version: 0.19
+    version: 0.20
 requires:
   Dist::Zilla: 4.3
   Dist::Zilla::Plugin::AutoMetaResources: 0
@@ -91,7 +92,7 @@ resources:
   bugtracker: https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu/issues
   homepage: https://metacpan.org/release/Dist-Zilla-PluginBundle-SHANTANU
   repository: git://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu.git
-version: 0.19
+version: 0.20
 x_contributors:
   - 'Shantanu <shantanu@cpan.org>'
   - 'Shantanu Bhadoria <shantanu.bhadoria@gmail.com>'

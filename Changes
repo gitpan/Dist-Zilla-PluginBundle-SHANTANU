@@ -1,6 +1,13 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.19 2013-09-14T03:36:23
+0.20 2013-09-27T10:05:36
+ - add additional group to Pod weaver [Shantanu]
+
+0.19 2013-09-14T03:38:26
+ - v0.19
+   
+    - Added inc and corpus directories to no index list [Shantanu]
+   [Shantanu]
  - Added inc and corpus directories to no index list [Shantanu]
 
 0.18 2013-09-12T08:49:01

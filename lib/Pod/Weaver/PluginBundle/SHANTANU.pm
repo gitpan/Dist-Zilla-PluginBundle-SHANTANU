@@ -3,7 +3,7 @@ use warnings;
 
 package Pod::Weaver::PluginBundle::SHANTANU;
 
-our $VERSION = '0.19'; # VERSION
+our $VERSION = '0.20'; # VERSION
 
 use Pod::Weaver 3.101638;
 use Pod::Weaver::Config::Assembler;
@@ -48,6 +48,8 @@ sub mvp_bundle_config {
     );
     for my $plugin (
         [ 'Usage',        _exp('Collect'), { command => 'usage' } ],
+        [ 'Constants',    _exp('Collect'), { command => 'constant' } ],
+        [ 'Registers',    _exp('Collect'), { command => 'register' } ],
         [ 'Functions',    _exp('Collect'), { command => 'func' } ],
         [ 'Attributes',   _exp('Collect'), { command => 'attr' } ],
         [ 'Constructors', _exp('Collect'), { command => 'construct' } ],
@@ -93,7 +95,7 @@ Pod::Weaver::PluginBundle::SHANTANU
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 METHODS
 

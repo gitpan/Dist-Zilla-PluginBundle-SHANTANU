@@ -18,7 +18,8 @@
          "t",
          "xt",
          "examples",
-         "corpus"
+         "corpus",
+         "inc"
       ],
       "package" : [
          "DB"
@@ -109,11 +110,11 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::SHANTANU" : {
          "file" : "lib/Dist/Zilla/PluginBundle/SHANTANU.pm",
-         "version" : "0.19"
+         "version" : "0.20"
       },
       "Pod::Weaver::PluginBundle::SHANTANU" : {
          "file" : "lib/Pod/Weaver/PluginBundle/SHANTANU.pm",
-         "version" : "0.19"
+         "version" : "0.20"
       }
    },
    "release_status" : "stable",
@@ -128,7 +129,7 @@
          "web" : "https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu"
       }
    },
-   "version" : "0.19",
+   "version" : "0.20",
    "x_contributors" : [
       "Shantanu <shantanu@cpan.org>",
       "Shantanu Bhadoria <shantanu.bhadoria@gmail.com>",
