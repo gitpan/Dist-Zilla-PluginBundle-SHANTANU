@@ -1,6 +1,12 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.20 2013-09-27T10:05:36
+0.21 2013-09-29T02:43:03
+ - Moved Constants and Registers lower [Shantanu]
+
+0.20 2013-09-27T10:08:08
+ - v0.20
+   
+    - add additional group to Pod weaver [Shantanu] [Shantanu]
  - add additional group to Pod weaver [Shantanu]
 
 0.19 2013-09-14T03:38:26
