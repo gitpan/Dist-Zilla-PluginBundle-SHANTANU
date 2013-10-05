@@ -25,11 +25,13 @@ my %WriteMakefileArgs = (
     "Dist::Zilla" => "4.3",
     "Dist::Zilla::Plugin::AutoMetaResources" => 0,
     "Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes" => 0,
+    "Dist::Zilla::Plugin::ChangelogFromGit::Debian" => 0,
     "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::CheckMetaResources" => 0,
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
     "Dist::Zilla::Plugin::ContributorsFromGit" => 0,
+    "Dist::Zilla::Plugin::Control::Debian" => 0,
     "Dist::Zilla::Plugin::CopyFilesFromBuild" => 0,
     "Dist::Zilla::Plugin::Git::NextVersion" => 0,
     "Dist::Zilla::Plugin::InsertCopyright" => 0,
@@ -83,7 +85,7 @@ my %WriteMakefileArgs = (
     "List::Util" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.21",
+  "VERSION" => "0.22",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -13,11 +13,13 @@ my @modules = qw(
     Dist::Zilla
   Dist::Zilla::Plugin::AutoMetaResources
   Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes
+  Dist::Zilla::Plugin::ChangelogFromGit::Debian
   Dist::Zilla::Plugin::CheckChangesHasContent
   Dist::Zilla::Plugin::CheckExtraTests
   Dist::Zilla::Plugin::CheckMetaResources
   Dist::Zilla::Plugin::CheckPrereqsIndexed
   Dist::Zilla::Plugin::ContributorsFromGit
+  Dist::Zilla::Plugin::Control::Debian
   Dist::Zilla::Plugin::CopyFilesFromBuild
   Dist::Zilla::Plugin::Git::NextVersion
   Dist::Zilla::Plugin::InsertCopyright

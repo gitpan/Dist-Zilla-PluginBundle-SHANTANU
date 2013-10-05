@@ -30,19 +30,21 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::SHANTANU:
     file: lib/Dist/Zilla/PluginBundle/SHANTANU.pm
-    version: 0.21
+    version: 0.22
   Pod::Weaver::PluginBundle::SHANTANU:
     file: lib/Pod/Weaver/PluginBundle/SHANTANU.pm
-    version: 0.21
+    version: 0.22
 requires:
   Dist::Zilla: 4.3
   Dist::Zilla::Plugin::AutoMetaResources: 0
   Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes: 0
+  Dist::Zilla::Plugin::ChangelogFromGit::Debian: 0
   Dist::Zilla::Plugin::CheckChangesHasContent: 0
   Dist::Zilla::Plugin::CheckExtraTests: 0
   Dist::Zilla::Plugin::CheckMetaResources: 0
   Dist::Zilla::Plugin::CheckPrereqsIndexed: 0
   Dist::Zilla::Plugin::ContributorsFromGit: 0
+  Dist::Zilla::Plugin::Control::Debian: 0
   Dist::Zilla::Plugin::CopyFilesFromBuild: 0
   Dist::Zilla::Plugin::Git::NextVersion: 0
   Dist::Zilla::Plugin::InsertCopyright: 0
@@ -92,7 +94,7 @@ resources:
   bugtracker: https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu/issues
   homepage: https://metacpan.org/release/Dist-Zilla-PluginBundle-SHANTANU
   repository: git://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu.git
-version: 0.21
+version: 0.22
 x_contributors:
   - 'Shantanu <shantanu@cpan.org>'
   - 'Shantanu Bhadoria <shantanu.bhadoria@gmail.com>'
