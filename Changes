@@ -1,6 +1,12 @@
 Changelog for Dist-Zilla-PluginBundle-SHANTANU
 
-0.22 2013-10-05T03:54:47
+0.23 2013-10-16T04:47:50
+ - Updated to latest Changelogfromgit cpan changes code [Shantanu Bhadoria]
+
+0.22 2013-10-05T03:57:15
+ - v0.22
+   
+    - Added debian files [Shantanu] [Shantanu]
  - Added debian files [Shantanu]
 
 0.21 2013-09-29T02:45:52
@@ -76,9 +82,6 @@ Changelog for Dist-Zilla-PluginBundle-SHANTANU
    [Shantanu]
 
 0.15 2013-09-12T06:20:47
- - Renamed CHANGES to Changes [Shantanu]
-
-0.14 2013-09-12T06:14:58
  - Renamed CHANGES to Changes [Shantanu]
 
 0.13 2013-09-12T06:07:57

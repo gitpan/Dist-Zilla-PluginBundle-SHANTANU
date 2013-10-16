@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.22'; # VERSION
+our $VERSION = '0.23'; # VERSION
 
 # Dependencies
 use 5.010;
@@ -364,6 +364,7 @@ sub configure {
             'ChangelogFromGit::CPAN::Changes' => {
                 tag_regexp             => '^release-(\d+\.\d+)$',
                 parse_version_from_tag => 1,
+                transform_version_tag  => 1,
                 file_name              => 'Changes',
             }
         ],
@@ -487,7 +488,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 SYNOPSIS
 

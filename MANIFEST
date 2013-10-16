@@ -5,8 +5,6 @@ META.json
 META.yml
 Makefile.PL
 README
-debian/changelog
-debian/control
 lib/Dist/Zilla/PluginBundle/SHANTANU.pm
 lib/Pod/Weaver/PluginBundle/SHANTANU.pm
 t/00-compile.t
