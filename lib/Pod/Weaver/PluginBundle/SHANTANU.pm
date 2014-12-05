@@ -3,7 +3,7 @@ use warnings;
 
 package Pod::Weaver::PluginBundle::SHANTANU;
 
-our $VERSION = '0.23'; # VERSION
+our $VERSION = '0.24'; # VERSION
 
 use Pod::Weaver 3.101638;
 use Pod::Weaver::Config::Assembler;
@@ -95,7 +95,7 @@ Pod::Weaver::PluginBundle::SHANTANU
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 METHODS
 
@@ -105,27 +105,9 @@ version 0.23
 
 Shantanu Bhadoria <shantanu@cpan.org>
 
-=head1 CONTRIBUTORS
-
-=over 4
-
-=item *
-
-Shantanu <shantanu@cpan.org>
-
-=item *
-
-Shantanu Bhadoria <shantanu.bhadoria@gmail.com>
-
-=item *
-
-Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>
-
-=back
-
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Shantanu Bhadoria.
+This software is copyright (c) 2014 by Shantanu Bhadoria.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

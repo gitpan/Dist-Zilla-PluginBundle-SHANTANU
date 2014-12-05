@@ -1,0 +1,8 @@
+dist-zilla-pluginbundle-shantanu (0.24) stable; urgency=low
+  * Added new stopwords for pod spellcheck 
+  * Fixes to Dist Zilla PluginBundle for exclude_match empty Array
+    exceptions 
+  * Mode change and minor mods 
+
+ -- Shantanu Bhadoria <shantanu@cpan.org>  Fri,  5 Dec 2014 14:31:32 +0000
+

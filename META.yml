@@ -4,15 +4,15 @@ author:
   - 'Shantanu Bhadoria <shantanu@cpan.org>'
 build_requires:
   ExtUtils::MakeMaker: 0
-  File::Find: 0
-  File::Spec::Functions: 0
+  File::Spec: 0
   File::Temp: 0
-  List::Util: 0
+  IO::Handle: 0
+  IPC::Open3: 0
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: 0
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.142060'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -30,10 +30,10 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::SHANTANU:
     file: lib/Dist/Zilla/PluginBundle/SHANTANU.pm
-    version: 0.23
+    version: 0.24
   Pod::Weaver::PluginBundle::SHANTANU:
     file: lib/Pod/Weaver/PluginBundle/SHANTANU.pm
-    version: 0.23
+    version: 0.24
 requires:
   Dist::Zilla: 4.3
   Dist::Zilla::Plugin::AutoMetaResources: 0
@@ -73,7 +73,7 @@ requires:
   Dist::Zilla::Plugin::Test::Portability: 0
   Dist::Zilla::Plugin::Test::ReportPrereqs: 0
   Dist::Zilla::Plugin::Test::Version: 0
-  Dist::Zilla::PluginBundle::Git: 2.009
+  Dist::Zilla::PluginBundle::Git: 2.028
   Dist::Zilla::Role::PluginBundle::Config::Slicer: 0
   Dist::Zilla::Role::PluginBundle::Easy: 0
   Moose: 0.99
@@ -94,7 +94,7 @@ resources:
   bugtracker: https://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu/issues
   homepage: https://metacpan.org/release/Dist-Zilla-PluginBundle-SHANTANU
   repository: git://github.com/shantanubhadoria/dist-zilla-pluginbundle-shantanu.git
-version: 0.23
+version: 0.24
 x_contributors:
   - 'Shantanu <shantanu@cpan.org>'
   - 'Shantanu Bhadoria <shantanu.bhadoria@gmail.com>'

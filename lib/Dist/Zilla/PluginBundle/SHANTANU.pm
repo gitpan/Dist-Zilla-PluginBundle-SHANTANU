@@ -5,7 +5,7 @@ package Dist::Zilla::PluginBundle::SHANTANU;
 
 # PODNAME: Dist::Zilla::PluginBundle::SHANTANU
 
-our $VERSION = '0.23'; # VERSION
+our $VERSION = '0.24'; # VERSION
 
 # Dependencies
 use 5.010;
@@ -16,7 +16,7 @@ use namespace::autoclean 0.09;
 
 use Dist::Zilla 4.3;
 
-use Dist::Zilla::PluginBundle::Git 2.009;
+use Dist::Zilla::PluginBundle::Git 2.028;
 
 use Dist::Zilla::Plugin::Git::NextVersion;
 use Dist::Zilla::Plugin::AutoMetaResources;
@@ -71,7 +71,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 with 'Dist::Zilla::Role::PluginBundle::Config::Slicer';
 
 #Gather Stopwords that may skip spelling checks in pod testing
-sub mvp_multivalue_args { qw/stopwords exclude_filename exclude_match/ }
+sub mvp_multivalue_args { qw/stopwords exclude_filename/ }
 
 
 has makemaker => (
@@ -114,6 +114,7 @@ has version_regexp => (
     },
 );
 
+
 has is_task => (
     is      => 'ro',
     isa     => 'Bool',
@@ -121,12 +122,14 @@ has is_task => (
     default => sub { $_[0]->payload->{is_task} },
 );
 
+
 has weaver_config => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
     default => sub { $_[0]->payload->{weaver_config} || '@SHANTANU' },
 );
+
 
 has no_spellcheck => (
     is      => 'ro',
@@ -152,18 +155,6 @@ has exclude_filename => (
 );
 
 
-has exclude_match => (
-    is      => 'ro',
-    isa     => 'ArrayRef',
-    lazy    => 1,
-    default => sub {
-        exists $_[0]->payload->{exclude_match}
-          ? $_[0]->payload->{exclude_match}
-          : [];
-    },
-);
-
-
 has stopwords => (
     is      => 'ro',
     isa     => 'ArrayRef',
@@ -173,6 +164,7 @@ has stopwords => (
     },
 );
 
+
 has no_critic => (
     is      => 'ro',
     isa     => 'Bool',
@@ -181,6 +173,7 @@ has no_critic => (
         exists $_[0]->payload->{no_critic} ? $_[0]->payload->{no_critic} : 0;
     },
 );
+
 
 has no_coverage => (
     is      => 'ro',
@@ -193,6 +186,7 @@ has no_coverage => (
     },
 );
 
+
 has auto_prereq => (
     is      => 'ro',
     isa     => 'Bool',
@@ -204,12 +198,34 @@ has auto_prereq => (
     },
 );
 
+
 has fake_release => (
     is      => 'ro',
     isa     => 'Bool',
     lazy    => 1,
     default => sub { $_[0]->payload->{fake_release} },
 );
+
+
+has tag_regexp => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    default => sub {
+        exists $_[0]->payload->{tag_regexp}
+          ? $_[0]->payload->{tag_regexp}
+          : '^release-(\d+\.\d+)$',;
+    },
+);
+
+
+has compile_for_debian => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => 0,
+);
+
 
 has tag_format => (
     is      => 'ro',
@@ -221,6 +237,7 @@ has tag_format => (
           : 'release-%v',;
     },
 );
+
 
 has git_remote => (
     is      => 'ro',
@@ -296,13 +313,11 @@ sub configure {
             ? [
                 'GatherDir' => {
                     exclude_filename => $self->exclude_filename,
-                    exclude_match    => $self->exclude_match
                 },
               ]    # core
             : [
                 'Git::GatherDir' => {
                     exclude_filename => $self->exclude_filename,
-                    exclude_match    => $self->exclude_match
                 },
             ]
         ),
@@ -348,6 +363,7 @@ sub configure {
             ? [ 'AutoPrereqs' => { skip => "^t::lib" } ]
             : ()
         ),
+
         [
             MetaNoIndex => {
                 directory => [qw/t xt examples corpus inc/],
@@ -362,7 +378,7 @@ sub configure {
         'MetaJSON',    # core
         [
             'ChangelogFromGit::CPAN::Changes' => {
-                tag_regexp             => '^release-(\d+\.\d+)$',
+                tag_regexp             => $self->tag_regexp,
                 parse_version_from_tag => 1,
                 transform_version_tag  => 1,
                 file_name              => 'Changes',
@@ -370,20 +386,24 @@ sub configure {
         ],
         [
             'ChangelogFromGit::Debian' => {
-                tag_regexp             => '^release-(\d+\.\d+)$',
+                tag_regexp             => $self->tag_regexp,
                 parse_version_from_tag => 1,
                 file_name              => 'debian/changelog',
                 maintainer_name        => 'Shantanu Bhadoria',
                 maintainer_email       => 'shantanu@cpan.org',
             }
         ],
-        [
-            'Control::Debian' => {
-                file_name        => 'debian/control',
-                maintainer_name  => 'Shantanu Bhadoria',
-                maintainer_email => 'shantanu@cpan.org',
-            }
-        ],
+        (
+            $self->compile_for_debian
+            ? [
+                'Control::Debian' => {
+                    file_name        => 'debian/control',
+                    maintainer_name  => 'Shantanu Bhadoria',
+                    maintainer_email => 'shantanu@cpan.org',
+                }
+              ]
+            : ()
+        ),
 
         # build system
         'ExecDir',     # core
@@ -472,7 +492,7 @@ __PACKAGE__->meta->make_immutable;
 #
 # This file is part of Dist-Zilla-PluginBundle-SHANTANU
 #
-# This software is copyright (c) 2013 by Shantanu Bhadoria.
+# This software is copyright (c) 2014 by Shantanu Bhadoria.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
@@ -488,7 +508,7 @@ Dist::Zilla::PluginBundle::SHANTANU - Dist Zilla Plugin Bundle the way I like to
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 SYNOPSIS
 
@@ -520,6 +540,18 @@ no_git attribute
 
 version_regexp attribute
 
+=head2 is_task
+
+Use Taskweaver in lieu of PodWeaver
+
+=head2 weaver_config
+
+PodWeaver config_plugin attribute
+
+=head2 no_spellcheck
+
+Skip spelling checks
+
 =head2 exclude_filename
 
 list of filenames to exclude e.g.
@@ -527,14 +559,37 @@ list of filenames to exclude e.g.
     exclude_filename=META.json
     exclude_filename=META.yml
 
-=head2 exclude_match
-
-list of regex paths to exclude e.g.
-    exclude_match=^inc\/.*
-
 =head2 stopwords
 
 Stopwords to exclude for spell checks in pod
+
+=head2 no_critic
+
+Skip Perl Critic Checks
+
+=head2 no_coverage
+
+Skip Pod Coverage tests
+
+=head2 auto_prereq
+
+Automatically get prerequisites(default 1)
+
+=head2 fake_release
+
+=head2 tag_regexp
+
+Regex for obtaining the version number from git tag
+
+=head2 compile_for_debian
+
+generate debian specific files like control etc. Useful if you are using dh-make-perl for building .deb files from your package
+
+=head2 tag_format
+
+Git Tag format
+
+=head2 git_remote
 
 =for stopwords autoprereq dagolden fakerelease pluginbundle podweaver
 taskweaver uploadtocpan dist ini
@@ -662,6 +717,8 @@ Shantanu Bhadoria <shantanu@cpan.org>
 
 =head1 CONTRIBUTORS
 
+=for stopwords Shantanu Bhadoria
+
 =over 4
 
 =item *
@@ -680,7 +737,7 @@ Shantanu Bhadoria <shantanu@shantanu-M14xR2.(none)>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Shantanu Bhadoria.
+This software is copyright (c) 2014 by Shantanu Bhadoria.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
